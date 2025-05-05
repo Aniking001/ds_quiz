@@ -16,16 +16,16 @@
             {
                 category: "Loop Detection",
                 items: [
-                    { question: "In a linked list, loop detection can be efficiently performed using:", options: ["Breadth-first search", "Depth-first search", "Floyd’s Tortoise and Hare algorithm", "Dijkstra's algorithm"], answer: "Floyd’s Tortoise and Hare algorithm" },
-                    { question: "What is the time complexity of Floyd’s Tortoise and Hare algorithm for loop detection in a linked list?", options: ["O(n)", "O(log n)", "O(n^2)", "O(1)"], answer: "O(n)" },
+                    { question: "In a linked list, loop detection can be efficiently performed using:", options: ["Breadth-first search", "Depth-first search", "Floyd's Tortoise and Hare algorithm", "Dijkstra's algorithm"], answer: "Floyd's Tortoise and Hare algorithm" },
+                    { question: "What is the time complexity of Floyd's Tortoise and Hare algorithm for loop detection in a linked list?", options: ["O(n)", "O(log n)", "O(n^2)", "O(1)"], answer: "O(n)" },
                     { question: "Which data structure is commonly used to implement loop detection in a linked list?", options: ["Array", "Stack", "Queue", "Hash table"], answer: "Hash table" },
-                    { question: "In a linked list with a loop, what does Floyd’s Tortoise and Hare algorithm help identify?", options: ["Length of the loop", "Starting point of the loop", "Both A and B", "None of the above"], answer: "Both A and B" },
-                    { question: "What is the space complexity of Floyd’s Tortoise and Hare algorithm?", options: ["O(1)", "O(n)", "O(log n)", "O(n^2)"], answer: "O(1)" },
-                    { question: "Which of the following is NOT a step in Floyd’s Tortoise and Hare algorithm?", options: ["Move the tortoise by one step", "Move the hare by one step", "Move the tortoise by two steps", "Move the hare by two steps"], answer: "Move the hare by two steps" },
-                    { question: "What happens if the tortoise and the hare meet during Floyd’s Tortoise and Hare algorithm?", options: ["The linked list has a loop", "The linked list is empty", "The linked list is sorted", "None of the above"], answer: "The linked list has a loop" },
+                    { question: "In a linked list with a loop, what does Floyd's Tortoise and Hare algorithm help identify?", options: ["Length of the loop", "Starting point of the loop", "Both A and B", "None of the above"], answer: "Both A and B" },
+                    { question: "What is the space complexity of Floyd's Tortoise and Hare algorithm?", options: ["O(1)", "O(n)", "O(log n)", "O(n^2)"], answer: "O(1)" },
+                    { question: "Which of the following is NOT a step in Floyd's Tortoise and Hare algorithm?", options: ["Move the tortoise by one step", "Move the hare by one step", "Move the tortoise by two steps", "Move the hare by two steps"], answer: "Move the hare by two steps" },
+                    { question: "What happens if the tortoise and the hare meet during Floyd's Tortoise and Hare algorithm?", options: ["The linked list has a loop", "The linked list is empty", "The linked list is sorted", "None of the above"], answer: "The linked list has a loop" },
                     { question: "Which of the following statements about loop detection is true?", options: ["Loop detection is only possible in circular linked lists", "Loop detection is not possible in singly linked lists", "Loop detection can be performed in both singly and doubly linked lists", "Loop detection is only possible in arrays"], answer: "Loop detection can be performed in both singly and doubly linked lists" },
                     { question: "What is the worst-case time complexity of hashing-based loop detection in a linked list?", options: ["O(n)", "O(log n)", "O(1)", "O(n^2)"], answer: "O(n)" },
-                    { question: "What happens if the hare reaches the end of the linked list during Floyd’s Tortoise and Hare algorithm?", options: ["The linked list has a loop", "The linked list is empty", "The linked list is sorted", "None of the above"], answer: "None of the above" }
+                    { question: "What happens if the hare reaches the end of the linked list during Floyd's Tortoise and Hare algorithm?", options: ["The linked list has a loop", "The linked list is empty", "The linked list is sorted", "None of the above"], answer: "None of the above" }
                 ]
             },
             {
@@ -215,7 +215,67 @@
                     { question: "Which of the following operations is NOT typically performed on a stack?", options: ["Push", "Pop", "Delete", "Peek"], answer: "Delete" },
                     { question: "What is the time complexity of the push operation in a stack implemented using an array?", options: ["O(1)", "O(log n)", "O(n)", "O(n^2)"], answer: "O(1)" },
                     { question: "In a stack, which element can be accessed first?", options: ["The top element", "The bottom element", "Any random element", "None of the above"], answer: "The top element" },
-                    { question: "Which of the following data structures is commonly used to implement a stack?", options: ["Array", "Linked list", "Queue", "Tree"], answer: "Array" }
+                    { question: "Which of the following data structures is commonly used to implement a stack?", options: ["Array", "Linked list", "Queue", "Tree"], answer: "Array" },
+                    { question: "What is the time complexity of the pop operation in a stack implemented using a linked list?", options: ["O(1)", "O(log n)", "O(n)", "O(n^2)"], answer: "O(1)" },
+                    { question: "Which of the following applications does NOT use a stack?", options: ["Function calls and recursion", "Undo operation in text editors", "Breadth-first search", "Expression evaluation"], answer: "Breadth-first search" },
+                    { question: "What happens when you try to pop an element from an empty stack?", options: ["It returns NULL", "It returns the last popped element", "It throws an exception", "It waits until an element is pushed"], answer: "It throws an exception" },
+                    { question: "Which of the following statements about stacks is true?", options: ["A stack can be implemented using a queue.", "A stack follows the FIFO principle.", "A stack can only store elements of the same data type.", "A stack has a fixed size when implemented using an array."], answer: "A stack can be implemented using a queue." },
+                    { question: "What is the primary advantage of using a stack?", options: ["It allows for efficient random access to elements.", "It provides a way to store and retrieve elements in a specific order.", "It has a lower space complexity compared to other data structures.", "It allows for efficient insertion and deletion at both ends."], answer: "It provides a way to store and retrieve elements in a specific order." }
+                ]
+            },
+            {
+                category: "Input/Output Based Questions",
+                items: [
+                    { 
+                        question: "What is the output of the following code?\n```\nfunction findLoop(head) {\n  let slow = head;\n  let fast = head;\n  \n  while (fast && fast.next) {\n    slow = slow.next;\n    fast = fast.next.next;\n    \n    if (slow === fast) {\n      return true;\n    }\n  }\n  \n  return false;\n}\n```\nGiven a linked list with a loop starting at the 3rd node.", 
+                        options: ["true", "false", "undefined", "Error"], 
+                        answer: "true" 
+                    },
+                    { 
+                        question: "What is the output of the following code?\n```\nfunction sortBitonicDLL(head) {\n  if (!head || !head.next) return head;\n  \n  let ascending = head;\n  let descending = null;\n  let current = head;\n  \n  while (current.next && current.data <= current.next.data) {\n    current = current.next;\n  }\n  \n  if (current.next) {\n    descending = current.next;\n    current.next = null;\n    descending.prev = null;\n  }\n  \n  return merge(ascending, reverse(descending));\n}\n```\nGiven a bitonic DLL: 1→3→5→10→8→6→4", 
+                        options: ["1→3→4→5→6→8→10", "10→8→6→5→4→3→1", "1→3→5→10→4→6→8", "1→3→5→4→6→8→10"], 
+                        answer: "1→3→4→5→6→8→10" 
+                    },
+                    { 
+                        question: "What is the output of the following code?\n```\nfunction segregateEvenOdd(head) {\n  if (!head || !head.next) return head;\n  \n  let evenStart = null, evenEnd = null;\n  let oddStart = null, oddEnd = null;\n  let current = head;\n  \n  while (current) {\n    if (current.data % 2 === 0) {\n      if (!evenStart) {\n        evenStart = current;\n        evenEnd = current;\n      } else {\n        evenEnd.next = current;\n        evenEnd = current;\n      }\n    } else {\n      if (!oddStart) {\n        oddStart = current;\n        oddEnd = current;\n      } else {\n        oddEnd.next = current;\n        oddEnd = current;\n      }\n    }\n    current = current.next;\n  }\n  \n  if (!evenStart) return oddStart;\n  if (!oddStart) return evenStart;\n  \n  evenEnd.next = oddStart;\n  oddEnd.next = null;\n  \n  return evenStart;\n}\n```\nGiven a linked list: 1→2→3→4→5", 
+                        options: ["2→4→1→3→5", "1→3→5→2→4", "1→2→3→4→5", "5→3→1→4→2"], 
+                        answer: "2→4→1→3→5" 
+                    },
+                    { 
+                        question: "What is the output of the following code?\n```\nclass MinStack {\n  constructor() {\n    this.stack = [];\n    this.minStack = [];\n  }\n  \n  push(val) {\n    this.stack.push(val);\n    \n    if (this.minStack.length === 0 || val <= this.minStack[this.minStack.length - 1]) {\n      this.minStack.push(val);\n    }\n  }\n  \n  pop() {\n    if (this.stack.length === 0) return null;\n    \n    const val = this.stack.pop();\n    \n    if (val === this.minStack[this.minStack.length - 1]) {\n      this.minStack.pop();\n    }\n    \n    return val;\n  }\n  \n  top() {\n    if (this.stack.length === 0) return null;\n    return this.stack[this.stack.length - 1];\n  }\n  \n  getMin() {\n    if (this.minStack.length === 0) return null;\n    return this.minStack[this.minStack.length - 1];\n  }\n}\n\nconst stack = new MinStack();\nstack.push(5);\nstack.push(2);\nstack.push(4);\nstack.push(1);\nstack.push(3);\nstack.pop();\nstack.pop();\nconsole.log(stack.getMin());\n```", 
+                        options: ["1", "2", "3", "5"], 
+                        answer: "2" 
+                    },
+                    { 
+                        question: "What is the output of the following code?\n```\nfunction findCelebrity(n, knows) {\n  let candidate = 0;\n  \n  for (let i = 1; i < n; i++) {\n    if (knows(candidate, i)) {\n      candidate = i;\n    }\n  }\n  \n  for (let i = 0; i < n; i++) {\n    if (i !== candidate && (knows(candidate, i) || !knows(i, candidate))) {\n      return -1;\n    }\n  }\n  \n  return candidate;\n}\n\nconst knows = (a, b) => {\n  const matrix = [\n    [0, 1, 0, 0],\n    [0, 0, 0, 0],\n    [1, 1, 0, 0],\n    [1, 1, 1, 0]\n  ];\n  return matrix[a][b] === 1;\n};\n\nconsole.log(findCelebrity(4, knows));\n```", 
+                        options: ["0", "1", "2", "3"], 
+                        answer: "1" 
+                    },
+                    { 
+                        question: "What is the output of the following code?\n```\nfunction towerOfHanoi(n) {\n  const moves = [];\n  const towers = [[], [], []];\n  \n  // Initialize tower A with disks\n  for (let i = n; i > 0; i--) {\n    towers[0].push(i);\n  }\n  \n  const totalMoves = Math.pow(2, n) - 1;\n  \n  for (let i = 1; i <= totalMoves; i++) {\n    if (i % 3 === 1) {\n      moveDisk(towers, 0, 2, moves);\n    } else if (i % 3 === 2) {\n      moveDisk(towers, 0, 1, moves);\n    } else {\n      moveDisk(towers, 1, 2, moves);\n    }\n  }\n  \n  return moves.length;\n}\n\nfunction moveDisk(towers, from, to, moves) {\n  if (towers[from].length === 0) {\n    [from, to] = [to, from];\n  }\n  \n  if (towers[to].length === 0 || towers[from][towers[from].length - 1] < towers[to][towers[to].length - 1]) {\n    const disk = towers[from].pop();\n    towers[to].push(disk);\n    moves.push([from, to]);\n  } else {\n    const disk = towers[to].pop();\n    towers[from].push(disk);\n    moves.push([to, from]);\n  }\n}\n\nconsole.log(towerOfHanoi(3));\n```", 
+                        options: ["5", "7", "8", "15"], 
+                        answer: "7" 
+                    },
+                    { 
+                        question: "What is the output of the following code?\n```\nfunction calculateStockSpan(prices) {\n  const n = prices.length;\n  const spans = new Array(n).fill(1);\n  const stack = [];\n  \n  for (let i = 0; i < n; i++) {\n    while (stack.length > 0 && prices[stack[stack.length - 1]] <= prices[i]) {\n      stack.pop();\n    }\n    \n    spans[i] = stack.length === 0 ? i + 1 : i - stack[stack.length - 1];\n    stack.push(i);\n  }\n  \n  return spans;\n}\n\nconsole.log(calculateStockSpan([100, 80, 60, 70, 60, 75, 85]));\n```", 
+                        options: ["[1, 1, 1, 2, 1, 4, 6]", "[1, 1, 1, 2, 1, 4, 5]", "[1, 1, 1, 2, 1, 3, 6]", "[1, 1, 1, 2, 1, 3, 5]"], 
+                        answer: "[1, 1, 1, 2, 1, 4, 6]" 
+                    },
+                    { 
+                        question: "What is the output of the following code?\n```\nfunction maxSlidingWindow(nums, k) {\n  const result = [];\n  const deque = [];\n  \n  for (let i = 0; i < nums.length; i++) {\n    // Remove elements outside the window\n    while (deque.length > 0 && deque[0] < i - k + 1) {\n      deque.shift();\n    }\n    \n    // Remove smaller elements\n    while (deque.length > 0 && nums[deque[deque.length - 1]] < nums[i]) {\n      deque.pop();\n    }\n    \n    deque.push(i);\n    \n    if (i >= k - 1) {\n      result.push(nums[deque[0]]);\n    }\n  }\n  \n  return result;\n}\n\nconsole.log(maxSlidingWindow([1, 3, -1, -3, 5, 3, 6, 7], 3));\n```", 
+                        options: ["[3, 3, 5, 5, 6, 7]", "[1, 3, -1, 5, 5, 6]", "[3, 3, -1, 5, 5, 7]", "[1, 3, 5, 5, 6, 7]"], 
+                        answer: "[3, 3, 5, 5, 6, 7]" 
+                    },
+                    { 
+                        question: "What is the output of the following code?\n```\nfunction isStackPermutation(input, output) {\n  const stack = [];\n  let j = 0;\n  \n  for (let i = 0; i < input.length; i++) {\n    stack.push(input[i]);\n    \n    while (stack.length > 0 && stack[stack.length - 1] === output[j]) {\n      stack.pop();\n      j++;\n    }\n  }\n  \n  return stack.length === 0;\n}\n\nconsole.log(isStackPermutation([1, 2, 3, 4, 5], [5, 4, 3, 2, 1]));\nconsole.log(isStackPermutation([1, 2, 3, 4, 5], [4, 5, 3, 2, 1]));\n```", 
+                        options: ["true, true", "true, false", "false, true", "false, false"], 
+                        answer: "true, true" 
+                    },
+                    { 
+                        question: "What is the output of the following code?\n```\nfunction reverseLinkedList(head) {\n  let prev = null;\n  let current = head;\n  let next = null;\n  \n  while (current) {\n    next = current.next;\n    current.next = prev;\n    prev = current;\n    current = next;\n  }\n  \n  return prev;\n}\n\nfunction printList(head) {\n  const values = [];\n  let current = head;\n  \n  while (current) {\n    values.push(current.data);\n    current = current.next;\n  }\n  \n  return values.join('→');\n}\n\nclass Node {\n  constructor(data) {\n    this.data = data;\n    this.next = null;\n  }\n}\n\nconst head = new Node(1);\nhead.next = new Node(2);\nhead.next.next = new Node(3);\nhead.next.next.next = new Node(4);\nhead.next.next.next.next = new Node(5);\n\nconsole.log(printList(reverseLinkedList(head)));\n```", 
+                        options: ["1→2→3→4→5", "5→4→3→2→1", "5→1→2→3→4", "1→5→4→3→2"], 
+                        answer: "5→4→3→2→1" 
+                    }
                 ]
             }
         ];
@@ -229,15 +289,40 @@
             const [showResult, setShowResult] = React.useState(false);
             const [answered, setAnswered] = React.useState(false);
             const [filteredQuestions, setFilteredQuestions] = React.useState(questions);
+            const [shuffledQuestions, setShuffledQuestions] = React.useState([]);
+
+            // Function to shuffle array (Fisher-Yates algorithm)
+            const shuffleArray = (array) => {
+                const newArray = [...array];
+                for (let i = newArray.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+                }
+                return newArray;
+            };
 
             const handleCategorySelect = (category) => {
                 if (category === "Full Quiz") {
-                    setFilteredQuestions(questions);
+                    // For full quiz, we'll shuffle all questions from all categories
+                    const allQuestions = [];
+                    questions.forEach(category => {
+                        category.items.forEach(question => {
+                            allQuestions.push({
+                                ...question,
+                                categoryName: category.category
+                            });
+                        });
+                    });
+                    
+                    const shuffled = shuffleArray(allQuestions);
+                    setShuffledQuestions(shuffled);
+                    setFilteredQuestions([{ category: "Full Quiz", items: shuffled }]);
                     setCurrentCategoryIndex(0);
                 } else {
                     const filtered = questions.filter(q => q.category === category);
                     setFilteredQuestions(filtered);
                     setCurrentCategoryIndex(0);
+                    setShuffledQuestions([]);
                 }
                 setSelectedCategory(category);
                 setCurrentQuestionIndex(0);
@@ -274,6 +359,22 @@
             };
 
             const handleRestart = () => {
+                if (selectedCategory === "Full Quiz") {
+                    // Reshuffle questions for a new full quiz
+                    const allQuestions = [];
+                    questions.forEach(category => {
+                        category.items.forEach(question => {
+                            allQuestions.push({
+                                ...question,
+                                categoryName: category.category
+                            });
+                        });
+                    });
+                    
+                    const shuffled = shuffleArray(allQuestions);
+                    setShuffledQuestions(shuffled);
+                    setFilteredQuestions([{ category: "Full Quiz", items: shuffled }]);
+                }
                 setCurrentCategoryIndex(0);
                 setCurrentQuestionIndex(0);
                 setSelectedOption(null);
@@ -333,11 +434,17 @@
                         </div>
                     ) : (
                         <div>
-                            <h2 className="text-2xl font-bold text-blue-600 mb-4">{currentCategory.category}</h2>
+                            <h2 className="text-2xl font-bold text-blue-600 mb-4">
+                                {selectedCategory === "Full Quiz" && currentQuestion.categoryName 
+                                    ? `${currentQuestion.categoryName}` 
+                                    : currentCategory.category}
+                            </h2>
                             <p className="text-sm text-gray-600 mb-4">
                                 Question {currentQuestionIndex + 1} of {currentCategory.items.length}
                             </p>
-                            <h3 className="text-lg font-medium text-gray-800 mb-6">{currentQuestion.question}</h3>
+                            <div className="text-lg font-medium text-gray-800 mb-6 whitespace-pre-wrap">
+                                {currentQuestion.question}
+                            </div>
                             <div className="space-y-3">
                                 {currentQuestion.options.map((option, index) => (
                                     <button
@@ -350,7 +457,9 @@
                                                     : answered
                                                     ? 'bg-red-100 border-red-500 text-red-700'
                                                     : 'bg-gray-100 border-gray-300'
-                                                : 'bg-gray-100 border-gray-300 hover:bg-gray-200'
+                                                : answered && option === currentQuestion.answer
+                                                    ? 'bg-green-100 border-green-500 text-green-700'
+                                                    : 'bg-gray-100 border-gray-300 hover:bg-gray-200'
                                         }`}
                                         disabled={answered}
                                     >
