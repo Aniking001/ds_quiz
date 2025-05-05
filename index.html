@@ -275,6 +275,196 @@
                         question: "What is the output of the following code?\n```\nfunction reverseLinkedList(head) {\n  let prev = null;\n  let current = head;\n  let next = null;\n  \n  while (current) {\n    next = current.next;\n    current.next = prev;\n    prev = current;\n    current = next;\n  }\n  \n  return prev;\n}\n\nfunction printList(head) {\n  const values = [];\n  let current = head;\n  \n  while (current) {\n    values.push(current.data);\n    current = current.next;\n  }\n  \n  return values.join('→');\n}\n\nclass Node {\n  constructor(data) {\n    this.data = data;\n    this.next = null;\n  }\n}\n\nconst head = new Node(1);\nhead.next = new Node(2);\nhead.next.next = new Node(3);\nhead.next.next.next = new Node(4);\nhead.next.next.next.next = new Node(5);\n\nconsole.log(printList(reverseLinkedList(head)));\n```", 
                         options: ["1→2→3→4→5", "5→4→3→2→1", "5→1→2→3→4", "1→5→4→3→2"], 
                         answer: "5→4→3→2→1" 
+                    },
+                    {
+                        question: "What is the output of the following code?\n```\nfunction mergeSortDLL(head) {\n  if (!head || !head.next) return head;\n  \n  let slow = head, fast = head.next;\n  while (fast && fast.next) {\n    slow = slow.next;\n    fast = fast.next.next;\n  }\n  \n  let second = slow.next;\n  slow.next = null;\n  second.prev = null;\n  \n  return merge(mergeSortDLL(head), mergeSortDLL(second));\n}\n```\nGiven a doubly linked list: 9→3→7→1→5",
+                        options: ["1→3→5→7→9", "9→7→5→3→1", "3→1→5→7→9", "9→3→7→1→5"],
+                        answer: "1→3→5→7→9"
+                    },
+                    {
+                        question: "What is the output of the following code?\n```\nfunction priorityQueueInsert(queue, val, priority) {\n  queue.push({ val, priority });\n  queue.sort((a, b) => b.priority - a.priority);\n}\nfunction priorityQueueDeleteMax(queue) {\n  return queue.shift()?.val;\n}\nconst queue = [];\npriorityQueueInsert(queue, 'A', 3);\npriorityQueueInsert(queue, 'B', 1);\npriorityQueueInsert(queue, 'C', 5);\nconsole.log(priorityQueueDeleteMax(queue));\n```",
+                        options: ["A", "B", "C", "undefined"],
+                        answer: "C"
+                    },
+                    {
+                        question: "What is the output of the following code?\n```\nfunction quickSort(arr, low, high) {\n  if (low < high) {\n    let pi = partition(arr, low, high);\n    quickSort(arr, low, pi - 1);\n    quickSort(arr, pi + 1, high);\n  }\n  return arr;\n}\nfunction partition(arr, low, high) {\n  let pivot = arr[high];\n  let i = low - 1;\n  for (let j = low; j < high; j++) {\n    if (arr[j] <= pivot) {\n      i++;\n      [arr[i], arr[j]] = [arr[j], arr[i]];\n    }\n  }\n  [arr[i + 1], arr[high]] = [arr[high], arr[i + 1]];\n  return i + 1;\n}\nconsole.log(quickSort([5, 2, 9, 1, 7], 0, 4));\n```",
+                        options: ["[1, 2, 5, 7, 9]", "[5, 2, 9, 1, 7]", "[9, 7, 5, 2, 1]", "[2, 1, 5, 7, 9]"],
+                        answer: "[1, 2, 5, 7, 9]"
+                    },
+                    {
+                        question: "What is the output of the following code?\n```\nfunction findLoopLength(head) {\n  let slow = head, fast = head;\n  while (fast && fast.next) {\n    slow = slow.next;\n    fast = fast.next.next;\n    if (slow === fast) {\n      let length = 1;\n      slow = slow.next;\n      while (slow !== fast) {\n        slow = slow.next;\n        length++;\n      }\n      return length;\n    }\n  }\n  return 0;\n}\n```\nGiven a linked list: 1→2→3→4→5→3 (loops back to 3)",
+                        options: ["0", "2", "3", "5"],
+                        answer: "3"
+                    },
+                    {
+                        question: "What is the output of the following code?\n```\nfunction bitonicSplit(head) {\n  let current = head;\n  while (current.next && current.data < current.next.data) {\n    current = current.next;\n  }\n  return current.data;\n}\n```\nGiven a bitonic DLL: 2→4→6→5→3→1",
+                        options: ["2", "4", "5", "6"],
+                        answer: "6"
+                    },
+                    {
+                        question: "What is the output of the following code?\n```\nfunction segregateEvenOddEnd(head) {\n  let even = [], odd = [];\n  let current = head;\n  while (current) {\n    if (current.data % 2 === 0) even.push(current.data);\n    else odd.push(current.data);\n    current = current.next;\n  }\n  return [...even, ...odd].join('→');\n}\n```\nGiven a linked list: 7→8→9→10→11",
+                        options: ["8→10→7→9→11", "7→9→11→8→10", "8→10→7→9→11", "7→8→9→10→11"],
+                        answer: "8→10→7→9→11"
+                    },
+                    {
+                        question: "What is the output of the following code?\n```\nclass MinStack {\n  constructor() {\n    this.stack = [];\n    this.minStack = [];\n  }\n  push(val) {\n    this.stack.push(val);\n    if (this.minStack.length === 0 || val <= this.minStack[this.minStack.length - 1]) {\n      this.minStack.push(val);\n    }\n  }\n  pop() {\n    if (this.stack.length === 0) return null;\n    let val = this.stack.pop();\n    if (val === this.minStack[this.minStack.length - 1]) this.minStack.pop();\n    return val;\n  }\n  getMin() {\n    return this.minStack[this.minStack.length - 1];\n  }\n}\nconst stack = new MinStack();\nstack.push(3);\nstack.push(5);\nstack.pop();\nconsole.log(stack.getMin());\n```",
+                        options: ["3", "5", "null", "undefined"],
+                        answer: "3"
+                    },
+                    {
+                        question: "What is the output of the following code?\n```\nfunction findCelebrity(n, knows) {\n  let candidate = 0;\n  for (let i = 1; i < n; i++) {\n    if (knows(candidate, i)) candidate = i;\n  }\n  for (let i = 0; i < n; i++) {\n    if (i !== candidate && (knows(candidate, i) || !knows(i, candidate))) return -1;\n  }\n  return candidate;\n}\nconst knows = (a, b) => {\n  const matrix = [\n    [0, 1, 1],\n    [0, 0, 1],\n    [0, 0, 0]\n  ];\n  return matrix[a][b] === 1;\n};\nconsole.log(findCelebrity(3, knows));\n```",
+                        options: ["0", "1", "2", "-1"],
+                        answer: "2"
+                    },
+                    {
+                        question: "What is the output of the following code?\n```\nfunction towerOfHanoiMoves(n) {\n  return Math.pow(2, n) - 1;\n}\nconsole.log(towerOfHanoiMoves(4));\n```",
+                        options: ["7", "15", "31", "63"],
+                        answer: "15"
+                    },
+                    {
+                        question: "What is the output of the following code?\n```\nfunction stockSpanFirstDay(prices) {\n  const spans = new Array(prices.length).fill(1);\n  const stack = [];\n  for (let i = 0; i < prices.length; i++) {\n    while (stack.length > 0 && prices[stack[stack.length - 1]] <= prices[i]) {\n      stack.pop();\n    }\n    spans[i] = stack.length === 0 ? i + 1 : i - stack[stack.length - 1];\n    stack.push(i);\n  }\n  return spans[0];\n}\nconsole.log(stockSpanFirstDay([50, 30, 20, 40, 60]));\n```",
+                        options: ["1", "2", "3", "5"],
+                        answer: "1"
+                    },
+                    {
+                        question: "What is the output of the following code?\n```\nfunction maxSlidingWindowLast(nums, k) {\n  const result = [];\n  const deque = [];\n  for (let i = 0; i < nums.length; i++) {\n    while (deque.length > 0 && deque[0] < i - k + 1) deque.shift();\n    while (deque.length > 0 && nums[deque[deque.length - 1]] < nums[i]) deque.pop();\n    deque.push(i);\n    if (i >= k - 1) result.push(nums[deque[0]]);\n  }\n  return result[result.length - 1];\n}\nconsole.log(maxSlidingWindowLast([2, 4, 1, 3, 5, 6], 3));\n```",
+                        options: ["1", "3", "5", "6"],
+                        answer: "6"
+                    },
+                    {
+                        question: "What is the output of the following code?\n```\nfunction isStackPermutationSingle(input, output) {\n  const stack = [];\n  let j = 0;\n  for (let i = 0; i < input.length; i++) {\n    stack.push(input[i]);\n    while (stack.length > 0 && stack[stack.length - 1] === output[j]) {\n      stack.pop();\n      j++;\n    }\n  }\n  return stack.length === 0;\n}\nconsole.log(isStackPermutationSingle([1, 2, 3], [2, 1, 3]));\n```",
+                        options: ["true", "false", "undefined", "Error"],
+                        answer: "false"
+                    },
+                    {
+                        question: "What is the output of the following code?\n```\nfunction deleteMiddle(head) {\n  if (!head || !head.next) return null;\n  let slow = head, fast = head, prev = null;\n  while (fast && fast.next) {\n    prev = slow;\n    slow = slow.next;\n    fast = fast.next.next;\n  }\n  prev.next = slow.next;\n  return head;\n}\nfunction printList(head) {\n  const values = [];\n  let current = head;\n  while (current) {\n    values.push(current.data);\n    current = current.next;\n  }\n  return values.join('→');\n}\nclass Node {\n  constructor(data) {\n    this.data = data;\n    this.next = null;\n  }\n}\nconst head = new Node(1);\nhead.next = new Node(2);\nhead.next.next = new Node(3);\nhead.next.next.next = new Node(4);\nconsole.log(printList(deleteMiddle(head)));\n```",
+                        options: ["1→2→4", "1→3→4", "1→2→3", "2→3→4"],
+                        answer: "1→2→4"
+                    },
+                    {
+                        question: "What is the output of the following code?\n```\nclass Stack {\n  constructor() {\n    this.items = [];\n  }\n  push(val) {\n    this.items.push(val);\n  }\n  pop() {\n    return this.items.pop();\n  }\n  peek() {\n    return this.items[this.items.length - 1];\n  }\n}\nconst stack = new Stack();\nstack.push(1);\nstack.push(2);\nstack.push(3);\nstack.pop();\nstack.push(4);\nconsole.log(stack.peek());\n```",
+                        options: ["1", "2", "3", "4"],
+                        answer: "4"
+                    },
+                    {
+                        question: "What is the output of the following code?\n```\nfunction mergeSortStep(arr) {\n  if (arr.length <= 1) return arr;\n  const mid = Math.floor(arr.length / 2);\n  return [arr.slice(0, mid), arr.slice(mid)];\n}\nconsole.log(mergeSortStep([8, 3, 5, 1, 7]));\n```",
+                        options: ["[[8, 3], [5, 1, 7]]", "[[8, 3, 5], [1, 7]]", "[[8], [3, 5, 1, 7]]", "[[8, 3, 5, 1], [7]]"],
+                        answer: "[[8, 3], [5, 1, 7]]"
+                    },
+                    {
+                        question: "What is the output of the following code?\n```\nfunction detectLoopStart(head) {\n  let slow = head, fast = head;\n  while (fast && fast.next) {\n    slow = slow.next;\n    fast = fast.next.next;\n    if (slow === fast) {\n      slow = head;\n      while (slow !== fast) {\n        slow = slow.next;\n        fast = fast.next;\n      }\n      return slow.data;\n    }\n  }\n  return -1;\n}\n```\nGiven a linked list: 1→2→3→4→5→2 (loops back to 2)",
+                        options: ["1", "2", "3", "-1"],
+                        answer: "2"
+                    },
+                    {
+                        question: "What is the output of the following code?\n```\nfunction bitonicReverse(head) {\n  let current = head;\n  while (current.next && current.data < current.next.data) {\n    current = current.next;\n  }\n  let descending = current.next;\n  let result = [];\n  while (descending) {\n    result.push(descending.data);\n    descending = descending.next;\n  }\n  return result.join('→');\n}\n```\nGiven a bitonic DLL: 1→3→5→4→2",
+                        options: ["4→2", "5→4→2", "2→4", "1→3→5"],
+                        answer: "4→2"
+                    },
+                    {
+                        question: "What is the output of the following code?\n```\nfunction segregateEvenOddCount(head) {\n  let even = 0, odd = 0;\n  let current = head;\n  while (current) {\n    if (current.data % 2 === 0) even++;\n    else odd++;\n    current = current.next;\n  }\n  return even;\n}\n```\nGiven a linked list: 2→3→4→5→6",
+                        options: ["2", "3", "4", "5"],
+                        answer: "3"
+                    },
+                    {
+                        question: "What is the output of the following code?\n```\nclass MinStack {\n  constructor() {\n    this.stack = [];\n    this.minStack = [];\n  }\n  push(val) {\n    this.stack.push(val);\n    if (this.minStack.length === 0 || val <= this.minStack[this.minStack.length - 1]) {\n      this.minStack.push(val);\n    }\n  }\n  pop() {\n    if (this.stack.length === 0) return null;\n    let val = this.stack.pop();\n    if (val === this.minStack[this.minStack.length - 1]) this.minStack.pop();\n    return val;\n  }\n  top() {\n    return this.stack[this.stack.length - 1];\n  }\n}\nconst stack = new MinStack();\nstack.push(4);\nstack.push(2);\nstack.push(6);\nconsole.log(stack.top());\n```",
+                        options: ["2", "4", "6", "null"],
+                        answer: "6"
+                    },
+                    {
+                        question: "What is the output of the following code?\n```\nfunction findCelebrityCount(n, knows) {\n  let candidate = 0;\n  for (let i = 1; i < n; i++) {\n    if (knows(candidate, i)) candidate = i;\n  }\n  let knownBy = 0;\n  for (let i = 0; i < n; i++) {\n    if (i !== candidate && knows(i, candidate)) knownBy++;\n  }\n  return knownBy;\n}\nconst knows = (a, b) => {\n  const matrix = [\n    [0, 1, 0],\n    [1, 0, 0],\n    [1, 1, 0]\n  ];\n  return matrix[a][b] === 1;\n};\nconsole.log(findCelebrityCount(3, knows));\n```",
+                        options: ["0", "1", "2", "3"],
+                        answer: "2"
+                    },
+                    {
+                        question: "What is the output of the following code?\n```\nfunction towerOfHanoiFirstMove(n) {\n  const moves = [];\n  const towers = [[], [], []];\n  for (let i = n; i > 0; i--) towers[0].push(i);\n  moveDisk(towers, 0, 1, moves);\n  return moves[0] ? `${moves[0][0]}→${moves[0][1]}` : 'No move';\n}\nfunction moveDisk(towers, from, to, moves) {\n  if (towers[from].length === 0) return;\n  const disk = towers[from].pop();\n  towers[to].push(disk);\n  moves.push([from, to]);\n}\nconsole.log(towerOfHanoiFirstMove(2));\n```",
+                        options: ["0→1", "0→2", "1→2", "No move"],
+                        answer: "0→1"
+                    },
+                    {
+                        question: "What is the output of the following code?\n```\nfunction stockSpanLastDay(prices) {\n  const spans = new Array(prices.length).fill(1);\n  const stack = [];\n  for (let i = 0; i < prices.length; i++) {\n    while (stack.length > 0 && prices[stack[stack.length - 1]] <= prices[i]) {\n      stack.pop();\n    }\n    spans[i] = stack.length === 0 ? i + 1 : i - stack[stack.length - 1];\n    stack.push(i);\n  }\n  return spans[spans.length - 1];\n}\nconsole.log(stockSpanLastDay([10, 20, 30, 40]));\n```",
+                        options: ["1", "2", "3", "4"],
+                        answer: "4"
+                    },
+                    {
+                        question: "What is the output of the following code?\n```\nfunction maxSlidingWindowFirst(nums, k) {\n  const result = [];\n  const deque = [];\n  for (let i = 0; i < nums.length; i++) {\n    while (deque.length > 0 && deque[0] < i - k + 1) deque.shift();\n    while (deque.length > 0 && nums[deque[deque.length - 1]] < nums[i]) deque.pop();\n    deque.push(i);\n    if (i >= k - 1) result.push(nums[deque[0]]);\n  }\n  return result[0];\n}\nconsole.log(maxSlidingWindowFirst([5, 2, 8, 1, 9], 3));\n```",
+                        options: ["2", "5", "8", "9"],
+                        answer: "8"
+                    },
+                    {
+                        question: "What is the output of the following code?\n```\nfunction stackPermutationCount(input, output) {\n  const stack = [];\n  let j = 0, pushes = 0;\n  for (let i = 0; i < input.length; i++) {\n    stack.push(input[i]);\n    pushes++;\n    while (stack.length > 0 && stack[stack.length - 1] === output[j]) {\n      stack.pop();\n      j++;\n    }\n  }\n  return pushes;\n}\nconsole.log(stackPermutationCount([1, 2, 3], [3, 2, 1]));\n```",
+                        options: ["1", "2", "3", "4"],
+                        answer: "3"
+                    },
+                    {
+                        question: "What is the output of the following code?\n```\nfunction addNodeAtEnd(head, data) {\n  const newNode = { data, next: null };\n  if (!head) return newNode;\n  let current = head;\n  while (current.next) current = current.next;\n  current.next = newNode;\n  return head;\n}\nfunction printList(head) {\n  const values = [];\n  let current = head;\n  while (current) {\n    values.push(current.data);\n    current = current.next;\n  }\n  return values.join('→');\n}\nlet head = { data: 1, next: { data: 2, next: null } };\nhead = addNodeAtEnd(head, 3);\nconsole.log(printList(head));\n```",
+                        options: ["1→2→3", "1→3→2", "3→1→2", "2→1→3"],
+                        answer: "1→2→3"
+                    },
+                    {
+                        question: "What is the output of the following code?\n```\nclass Stack {\n  constructor() {\n    this.items = [];\n  }\n  push(val) {\n    this.items.push(val);\n  }\n  pop() {\n    return this.items.pop();\n  }\n}\nconst stack = new Stack();\nstack.push(5);\nstack.push(3);\nstack.pop();\nstack.push(7);\nstack.pop();\nconsole.log(stack.items);\n```",
+                        options: ["[5]", "[3]", "[7]", "[5, 3]"],
+                        answer: "[5]"
+                    },
+                    {
+                        question: "What is the output of the following code?\n```\nfunction mergeDLLFirst(head1, head2) {\n  if (!head1) return head2;\n  if (!head2) return head1;\n  if (head1.data <= head2.data) return head1;\n  return head2;\n}\nconst head1 = { data: 2, next: null };\nconst head2 = { data: 4, next: null };\nconsole.log(mergeDLLFirst(head1, head2).data);\n```",
+                        options: ["2", "4", "null", "undefined"],
+                        answer: "2"
+                    },
+                    {
+                        question: "What is the output of the following code?\n```\nfunction loopIntersection(head) {\n  let slow = head, fast = head;\n  while (fast && fast.next) {\n    slow = slow.next;\n    fast = fast.next.next;\n    if (slow === fast) return true;\n  }\n  return false;\n}\n```\nGiven a linked list: 1→2→3→4→NULL",
+                        options: ["true", "false", "undefined", "Error"],
+                        answer: "false"
+                    },
+                    {
+                        question: "What is the output of the following code?\n```\nfunction bitonicPeak(head) {\n  let current = head;\n  while (current.next && current.data <= current.next.data) {\n    current = current.next;\n  }\n  return current.data;\n}\n```\nGiven a bitonic DLL: 1→2→3→4→3→2→1",
+                        options: ["1", "2", "3", "4"],
+                        answer: "4"
+                    },
+                    {
+                        question: "What is the output of the following code?\n```\nfunction segregateEvenOddFirst(head) {\n  let current = head;\n  while (current && current.data % 2 !== 0) {\n    current = current.next;\n  }\n  return current ? current.data : -1;\n}\n```\nGiven a linked list: 1→3→5→2→4",
+                        options: ["1", "2", "4", "-1"],
+                        answer: "2"
+                    },
+                    {
+                        question: "What is the output of the following code?\n```\nclass MinStack {\n  constructor() {\n    this.stack = [];\n    this.minStack = [];\n  }\n  push(val) {\n    this.stack.push(val);\n    if (this.minStack.length === 0 || val <= this.minStack[this.minStack.length - 1]) {\n      this.minStack.push(val);\n    }\n  }\n  pop() {\n    if (this.stack.length === 0) return null;\n    let val = this.stack.pop();\n    if (val === this.minStack[this.minStack.length - 1]) this.minStack.pop();\n    return val;\n  }\n  getMin() {\n    return this.minStack[this.minStack.length - 1];\n  }\n}\nconst stack = new MinStack();\nstack.push(7);\nstack.push(3);\nstack.push(5);\nstack.pop();\nstack.pop();\nconsole.log(stack.getMin());\n```",
+                        options: ["3", "5", "7", "null"],
+                        answer: "7"
+                    },
+                    {
+                        question: "What is the output of the following code?\n```\nfunction findCelebrityKnown(n, knows) {\n  let candidate = 0;\n  for (let i = 1; i < n; i++) {\n    if (knows(candidate, i)) candidate = i;\n  }\n  let knowsOthers = 0;\n  for (let i = 0; i < n; i++) {\n    if (i !== candidate && knows(candidate, i)) knowsOthers++;\n  }\n  return knowsOthers;\n}\nconst knows = (a, b) => {\n  const matrix = [\n    [0, 1, 0],\n    [0, 0, 0],\n    [1, 1, 0]\n  ];\n  return matrix[a][b] === 1;\n};\nconsole.log(findCelebrityKnown(3, knows));\n```",
+                        options: ["0", "1", "2", "3"],
+                        answer: "0"
+                    },
+                    {
+                        question: "What is the output of the following code?\n```\nfunction towerOfHanoiDisks(n) {\n  const towers = [[], [], []];\n  for (let i = n; i > 0; i--) towers[0].push(i);\n  return towers[0].length;\n}\nconsole.log(towerOfHanoiDisks(3));\n```",
+                        options: ["1", "2", "3", "4"],
+                        answer: "3"
+                    },
+                    {
+                        question: "What is the output of the following code?\n```\nfunction stockSpanSecondDay(prices) {\n  const spans = new Array(prices.length).fill(1);\n  const stack = [];\n  for (let i = 0; i < prices.length; i++) {\n    while (stack.length > 0 && prices[stack[stack.length - 1]] <= prices[i]) {\n      stack.pop();\n    }\n    spans[i] = stack.length === 0 ? i + 1 : i - stack[stack.length - 1];\n    stack.push(i);\n  }\n  return spans[1];\n}\nconsole.log(stockSpanSecondDay([100, 80, 60, 70]));\n```",
+                        options: ["1", "2", "3", "4"],
+                        answer: "1"
+                    },
+                    {
+                        question: "What is the output of the following code?\n```\nfunction maxSlidingWindowSecond(nums, k) {\n  const result = [];\n  const deque = [];\n  for (let i = 0; i < nums.length; i++) {\n    while (deque.length > 0 && deque[0] < i - k + 1) deque.shift();\n    while (deque.length > 0 && nums[deque[deque.length - 1]] < nums[i]) deque.pop();\n    deque.push(i);\n    if (i >= k - 1) result.push(nums[deque[0]]);\n  }\n  return result[1];\n}\nconsole.log(maxSlidingWindowSecond([1, 3, -1, -3, 5], 3));\n```",
+                        options: ["1", "3", "-1", "-3"],
+                        answer: "3"
+                    },
+                    {
+                        question: "What is the output of the following code?\n```\nfunction stackPermutationPops(input, output) {\n  const stack = [];\n  let j = 0, pops = 0;\n  for (let i = 0; i < input.length; i++) {\n    stack.push(input[i]);\n    while (stack.length > 0 && stack[stack.length - 1] === output[j]) {\n      stack.pop();\n      j++;\n      pops++;\n    }\n  }\n  return pops;\n}\nconsole.log(stackPermutationPops([1, 2, 3], [3, 2, 1]));\n```",
+                        options: ["1", "2", "3", "4"],
+                        answer: "3"
+                    },
+                    {
+                        question: "What is the output of the following code?\n```\nfunction addNodeAtStart(head, data) {\n  const newNode = { data, next: head };\n  return newNode;\n}\nfunction printList(head) {\n  const values = [];\n  let current = head;\n  while (current) {\n    values.push(current.data);\n    current = current.next;\n  }\n  return values.join('→');\n}\nlet head = { data: 2, next: { data: 3, next: null } };\nhead = addNodeAtStart(head, 1);\nconsole.log(printList(head));\n```",
+                        options: ["1→2→3", "2→3→1", "3→2→1", "1→3→2"],
+                        answer: "1→2→3"
+                    },
+                    {
+                        question: "What is the output of the following code?\n```\nclass Stack {\n  constructor() {\n    this.items = [];\n  }\n  push(val) {\n    this.items.push(val);\n  }\n  pop() {\n    return this.items.pop();\n  }\n}\nconst stack = new Stack();\nstack.push(1);\nstack.push(2);\nstack.pop();\nstack.pop();\nconsole.log(stack.items.length);\n```",
+                        options: ["0", "1", "2", "3"],
+                        answer: "0"
                     }
                 ]
             }
