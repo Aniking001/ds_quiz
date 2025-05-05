@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Structures Quiz</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.22.10/babel.min.js"></script>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-purple-100 flex justify-center items-center min-h-screen p-4">
+    <div id="root"></div>
+    <script type="text/babel">
+        const questions = [
+            {
+                category: "Loop Detection",
+                items: [
+                    { question: "In a linked list, loop detection can be efficiently performed using:", options: ["Breadth-first search", "Depth-first search", "Floyd’s Tortoise and Hare algorithm", "Dijkstra's algorithm"], answer: "Floyd’s Tortoise and Hare algorithm" },
+                    { question: "What is the time complexity of Floyd’s Tortoise and Hare algorithm for loop detection in a linked list?", options: ["O(n)", "O(log n)", "O(n^2)", "O(1)"], answer: "O(n)" },
+                    { question: "Which data structure is commonly used to implement loop detection in a linked list?", options: ["Array", "Stack", "Queue", "Hash table"], answer: "Hash table" },
+                    { question: "In a linked list with a loop, what does Floyd’s Tortoise and Hare algorithm help identify?", options: ["Length of the loop", "Starting point of the loop", "Both A and B", "None of the above"], answer: "Both A and B" },
+                    { question: "What is the space complexity of Floyd’s Tortoise and Hare algorithm?", options: ["O(1)", "O(n)", "O(log n)", "O(n^2)"], answer: "O(1)" },
+                    { question: "Which of the following is NOT a step in Floyd’s Tortoise and Hare algorithm?", options: ["Move the tortoise by one step", "Move the hare by one step", "Move the tortoise by two steps", "Move the hare by two steps"], answer: "Move the hare by two steps" },
+                    { question: "What happens if the tortoise and the hare meet during Floyd’s Tortoise and Hare algorithm?", options: ["The linked list has a loop", "The linked list is empty", "The linked list is sorted", "None of the above"], answer: "The linked list has a loop" },
+                    { question: "Which of the following statements about loop detection is true?", options: ["Loop detection is only possible in circular linked lists", "Loop detection is not possible in singly linked lists", "Loop detection can be performed in both singly and doubly linked lists", "Loop detection is only possible in arrays"], answer: "Loop detection can be performed in both singly and doubly linked lists" },
+                    { question: "What is the worst-case time complexity of hashing-based loop detection in a linked list?", options: ["O(n)", "O(log n)", "O(1)", "O(n^2)"], answer: "O(n)" },
+                    { question: "What happens if the hare reaches the end of the linked list during Floyd’s Tortoise and Hare algorithm?", options: ["The linked list has a loop", "The linked list is empty", "The linked list is sorted", "None of the above"], answer: "None of the above" }
+                ]
+            },
+            {
+                category: "Sort the Bitonic DLL",
+                items: [
+                    { question: "What does 'bitonic' mean in the context of a doubly linked list (DLL)?", options: ["It refers to a DLL with both ascending and descending parts.", "It refers to a DLL with only ascending order.", "It refers to a DLL with only descending order.", "It refers to a DLL with random order."], answer: "It refers to a DLL with both ascending and descending parts." },
+                    { question: "Which sorting algorithm is commonly used to sort a bitonic doubly linked list?", options: ["Quick Sort", "Merge Sort", "Bubble Sort", "Insertion Sort"], answer: "Merge Sort" },
+                    { question: "In a bitonic doubly linked list, what is the time complexity of sorting using Merge Sort?", options: ["O(n log n)", "O(n^2)", "O(n)", "O(log n)"], answer: "O(n log n)" },
+                    { question: "Which of the following is a characteristic of a bitonic doubly linked list?", options: ["It has all elements in ascending order.", "It has all elements in descending order.", "It has alternating ascending and descending order.", "It has a single element."], answer: "It has alternating ascending and descending order." },
+                    { question: "What is the purpose of sorting a bitonic doubly linked list?", options: ["To rearrange the elements in descending order.", "To rearrange the elements in ascending order.", "To convert it into a circular linked list.", "To remove duplicate elements."], answer: "To rearrange the elements in ascending order." },
+                    { question: "Which step is NOT involved in sorting a bitonic doubly linked list using Merge Sort?", options: ["Divide the list into sublists", "Merge the sorted sublists", "Perform binary search", "Recursively sort the sublists"], answer: "Perform binary search" },
+                    { question: "What is the worst-case time complexity of sorting a bitonic doubly linked list using Merge Sort?", options: ["O(n)", "O(n log n)", "O(n^2)", "O(log n)"], answer: "O(n log n)" },
+                    { question: "Which of the following algorithms is NOT suitable for sorting a bitonic doubly linked list?", options: ["Quick Sort", "Merge Sort", "Bubble Sort", "Insertion Sort"], answer: "Bubble Sort" },
+                    { question: "Which of the following statements about bitonic doubly linked lists is true?", options: ["They can only have one ascending and one descending portion.", "They can have multiple ascending and descending portions.", "They are always sorted in ascending order.", "They cannot contain duplicate elements."], answer: "They can have multiple ascending and descending portions." },
+                    { question: "What is the space complexity of Merge Sort when applied to a bitonic doubly linked list?", options: ["O(n)", "O(n^2)", "O(log n)", "O(1)"], answer: "O(n)" }
+                ]
+            },
+            {
+                category: "Segregate Even & Odd Nodes in a Linked List",
+                items: [
+                    { question: "Which of the following is an efficient approach to segregate even and odd nodes in a linked list?", options: ["Bubble Sort", "Merge Sort", "Quick Sort", "Two-pointer technique"], answer: "Two-pointer technique" },
+                    { question: "In the two-pointer technique for segregating even and odd nodes, how many pointers are used?", options: ["One", "Two", "Three", "Four"], answer: "Two" },
+                    { question: "What is the time complexity of segregating even and odd nodes using the two-pointer technique?", options: ["O(n)", "O(n log n)", "O(n^2)", "O(log n)"], answer: "O(n)" },
+                    { question: "Which of the following steps is NOT involved in segregating even and odd nodes using the two-pointer technique?", options: ["Initialize two pointers", "Traverse the linked list", "Swap even and odd nodes", "Reverse the linked list"], answer: "Reverse the linked list" },
+                    { question: "In the two-pointer technique, what is the role of the second pointer while segregating even and odd nodes?", options: ["It points to the first even node encountered.", "It points to the last odd node encountered.", "It points to the last even node encountered.", "It points to the first odd node encountered."], answer: "It points to the last even node encountered." },
+                    { question: "Which of the following linked list types is NOT suitable for segregating even and odd nodes?", options: ["Singly linked list", "Doubly linked list", "Circular linked list", "Bitonic linked list"], answer: "Bitonic linked list" },
+                    { question: "What is the purpose of segregating even and odd nodes in a linked list?", options: ["To rearrange the elements in ascending order", "To remove duplicate elements", "To separate nodes with even and odd values", "To convert it into a circular linked list"], answer: "To separate nodes with even and odd values" },
+                    { question: "Which of the following is a characteristic of the linked list after segregating even and odd nodes?", options: ["All even nodes appear before all odd nodes.", "All odd nodes appear before all even nodes.", "Even and odd nodes are alternately arranged.", "The order of nodes remains unchanged."], answer: "All even nodes appear before all odd nodes." },
+                    { question: "What is the space complexity of segregating even and odd nodes using the two-pointer technique?", options: ["O(n)", "O(n^2)", "O(log n)", "O(1)"], answer: "O(1)" },
+                    { question: "Which of the following algorithms is NOT suitable for segregating even and odd nodes in a linked list?", options: ["Two-pointer technique", "Hashing-based approach", "Breadth-first search", "Depth-first search"], answer: "Breadth-first search" }
+                ]
+            },
+            {
+                category: "Merge Sort for Doubly Linked List",
+                items: [
+                    { question: "What is the time complexity of Merge Sort for a doubly linked list?", options: ["O(n)", "O(n log n)", "O(n^2)", "O(log n)"], answer: "O(n log n)" },
+                    { question: "Which step is NOT involved in Merge Sort for a doubly linked list?", options: ["Divide the list into sublists", "Merge the sorted sublists", "Perform binary search", "Recursively sort the sublists"], answer: "Perform binary search" },
+                    { question: "What is the space complexity of Merge Sort for a doubly linked list?", options: ["O(n)", "O(n log n)", "O(log n)", "O(1)"], answer: "O(n)" },
+                    { question: "In Merge Sort for a doubly linked list, how are the sublists merged?", options: ["Using a hash table", "Using a stack", "Using recursion", "Using iterative loops"], answer: "Using recursion" },
+                    { question: "Which data structure is commonly used for implementing Merge Sort for a doubly linked list?", options: ["Array", "Stack", "Queue", "Linked list"], answer: "Linked list" },
+                    { question: "Which of the following is a characteristic of Merge Sort for a doubly linked list?", options: ["It is an in-place sorting algorithm.", "It requires extra space proportional to the length of the list.", "It has a worst-case time complexity of O(n^2).", "It cannot handle linked lists with loops."], answer: "It requires extra space proportional to the length of the list." },
+                    { question: "What happens in the base case of Merge Sort for a doubly linked list?", options: ["The list is divided into sublists of size 1.", "The list is already sorted.", "The list contains only one element.", "The list is empty."], answer: "The list contains only one element." },
+                    { question: "Which step comes first in the Merge Sort algorithm for a doubly linked list?", options: ["Merge the sorted sublists", "Divide the list into sublists", "Recursively sort the sublists", "Identify the base case"], answer: "Divide the list into sublists" },
+                    { question: "Which of the following statements about Merge Sort for a doubly linked list is true?", options: ["It has a worst-case time complexity of O(n).", "It requires extra space proportional to the square of the length of the list.", "It is an unstable sorting algorithm.", "It is not suitable for sorting linked lists."], answer: "It is not suitable for sorting linked lists." },
+                    { question: "What is the advantage of Merge Sort for a doubly linked list compared to other sorting algorithms?", options: ["It has a lower space complexity.", "It has a higher time complexity.", "It is stable.", "It can handle large datasets efficiently."], answer: "It has a lower space complexity." }
+                ]
+            },
+            {
+                category: "Minimum Stack",
+                items: [
+                    { question: "What is the time complexity of the push, pop, top, and getMin operations in a minimum stack?", options: ["O(1) for all operations", "O(n) for all operations", "O(1) for push and pop, O(n) for top and getMin", "O(n) for push and pop, O(1) for top and getMin"], answer: "O(1) for all operations" },
+                    { question: "Which data structure is typically used to implement a minimum stack?", options: ["Array", "Linked list", "Queue", "Heap"], answer: "Linked list" },
+                    { question: "In a minimum stack, what is the purpose of the getMin operation?", options: ["It returns the maximum element in the stack.", "It returns the minimum element in the stack.", "It returns the average of all elements in the stack.", "It returns the sum of all elements in the stack."], answer: "It returns the minimum element in the stack." },
+                    { question: "Which of the following statements about a minimum stack is true?", options: ["It only allows positive integers to be stored.", "It cannot store duplicate elements.", "It maintains the minimum element at the top of the stack.", "It has a fixed size."], answer: "It maintains the minimum element at the top of the stack." },
+                    { question: "What happens when the pop operation is called on an empty minimum stack?", options: ["It returns the minimum element in the stack.", "It removes the minimum element from the stack.", "It returns an error or throws an exception.", "It does nothing."], answer: "It returns an error or throws an exception." },
+                    { question: "Which operation is responsible for maintaining the minimum element in a minimum stack?", options: ["push", "pop", "top", "getMin"], answer: "push" },
+                    { question: "In a minimum stack, what is the time complexity of the getMin operation?", options: ["O(1)", "O(n)", "O(log n)", "O(n log n)"], answer: "O(1)" },
+                    { question: "Which of the following statements about a minimum stack is false?", options: ["It can be implemented using an array.", "It supports constant-time operations for push, pop, top, and getMin.", "It may require additional space to store minimum elements.", "It always maintains the minimum element as the first element in the stack."], answer: "It always maintains the minimum element as the first element in the stack." },
+                    { question: "What is the primary advantage of using a minimum stack?", options: ["It guarantees constant-time operations for all operations.", "It allows for efficient sorting of elements.", "It ensures that the minimum element is always accessible in constant time.", "It has a smaller memory footprint compared to other stack implementations."], answer: "It ensures that the minimum element is always accessible in constant time." },
+                    { question: "Which of the following operations in a minimum stack has the highest time complexity?", options: ["push", "pop", "top", "getMin"], answer: "pop" }
+                ]
+            },
+            {
+                category: "The Celebrity Problem",
+                items: [
+                    { question: "In the celebrity problem, a celebrity is a person who:", options: ["Is widely known and admired", "Is famous for their achievements", "Is known by everyone but knows no one", "Is known by everyone and knows everyone"], answer: "Is known by everyone but knows no one" },
+                    { question: "Which data structure is commonly used to solve the celebrity problem?", options: ["Array", "Stack", "Queue", "Graph"], answer: "Graph" },
+                    { question: "In the celebrity problem, what is the objective of the algorithm?", options: ["To find the most famous person", "To find a person with the highest number of acquaintances", "To find the person who is known by everyone and knows no one", "To find a person with the most achievements"], answer: "To find the person who is known by everyone and knows no one" },
+                    { question: "Which of the following statements about the celebrity problem is true?", options: ["There can be multiple celebrities in a group of people.", "A celebrity knows everyone in the group.", "The celebrity problem can be solved using only a stack.", "The solution to the celebrity problem always exists."], answer: "The solution to the celebrity problem always exists." },
+                    { question: "What is the time complexity of the algorithm used to solve the celebrity problem?", options: ["O(n)", "O(n log n)", "O(n^2)", "O(log n)"], answer: "O(n)" },
+                    { question: "In the algorithm for solving the celebrity problem, which step is NOT involved?", options: ["Checking if a candidate knows anyone", "Checking if everyone knows the candidate", "Checking if a candidate is known by everyone", "Checking if a candidate is known by no one"], answer: "Checking if a candidate knows anyone" },
+                    { question: "Which of the following statements about the celebrity problem is false?", options: ["The celebrity problem can be solved in polynomial time.", "The solution to the celebrity problem may not be unique.", "The celebrity problem can be reduced to finding the minimum element in a list.", "The brute-force approach to the celebrity problem has a time complexity of O(n^2)."], answer: "The celebrity problem can be solved in polynomial time." },
+                    { question: "In the context of the celebrity problem, what does it mean for a person to be a 'candidate'?", options: ["They are a well-known public figure.", "They are being considered as a potential celebrity.", "They are famous for their achievements.", "They have a large number of acquaintances."], answer: "They are being considered as a potential celebrity." },
+                    { question: "Which approach is commonly used to solve the celebrity problem efficiently?", options: ["Brute-force search", "Dynamic programming", "Greedy algorithm", "Two-pointer technique"], answer: "Two-pointer technique" },
+                    { question: "What is the space complexity of the algorithm used to solve the celebrity problem?", options: ["O(1)", "O(n)", "O(n^2)", "O(log n)"], answer: "O(1)" }
+                ]
+            },
+            {
+                category: "Iterative Tower of Hanoi",
+                items: [
+                    { question: "What is the minimum number of moves required to solve the Tower of Hanoi puzzle with 3 disks?", options: ["3", "5", "7", "9"], answer: "7" },
+                    { question: "Which data structure is commonly used in the iterative approach to solving the Tower of Hanoi puzzle?", options: ["Array", "Stack", "Queue", "Linked list"], answer: "Stack" },
+                    { question: "In the iterative Tower of Hanoi algorithm, how are the disks represented?", options: ["As integers", "As characters", "As nodes in a linked list", "As elements in an array"], answer: "As characters" },
+                    { question: "What is the time complexity of the iterative Tower of Hanoi algorithm?", options: ["O(2^n)", "O(n^2)", "O(n log n)", "O(n)"], answer: "O(2^n)" },
+                    { question: "What is the purpose of the Tower of Hanoi puzzle?", options: ["To sort a list of elements", "To find the shortest path in a graph", "To move a tower of disks from one peg to another, following specific rules", "To find the maximum sum of elements in an array"], answer: "To move a tower of disks from one peg to another, following specific rules" },
+                    { question: "Which of the following statements about the Tower of Hanoi puzzle is true?", options: ["It can be solved using only a single peg.", "It can only be solved recursively.", "It has a unique solution for any number of disks.", "It becomes easier as the number of disks increases."], answer: "It has a unique solution for any number of disks." },
+                    { question: "In the iterative Tower of Hanoi algorithm, which operation is performed first?", options: ["Move the top disk from source to auxiliary peg", "Move the top disk from source to destination peg", "Move the top disk from auxiliary to destination peg", "None of the above"], answer: "Move the top disk from source to auxiliary peg" },
+                    { question: "What is the space complexity of the iterative Tower of Hanoi algorithm?", options: ["O(1)", "O(n)", "O(2^n)", "O(n^2)"], answer: "O(n)" },
+                    { question: "Which of the following is NOT a rule of the Tower of Hanoi puzzle?", options: ["Only one disk can be moved at a time.", "A larger disk cannot be placed on top of a smaller disk.", "Disks can only be moved from source to destination peg.", "Disks must be stacked in ascending order of size on each peg."], answer: "Disks can only be moved from source to destination peg." },
+                    { question: "What is the role of the auxiliary peg in the Tower of Hanoi puzzle?", options: ["It is where the final configuration is achieved.", "It serves as temporary storage during the recursive moves.", "It is where the smallest disk is initially placed.", "It is where the largest disk is initially placed."], answer: "It serves as temporary storage during the recursive moves." }
+                ]
+            },
+            {
+                category: "Stock Span Problem",
+                items: [
+                    { question: "What does the stock span represent in the stock span problem?", options: ["The difference between the current day's stock price and the previous day's stock price", "The total number of consecutive days the stock price has been increasing", "The ratio of the current day's stock price to the previous day's stock price", "The number of days required for the stock price to reach a certain threshold"], answer: "The total number of consecutive days the stock price has been increasing" },
+                    { question: "Which data structure is commonly used to solve the stock span problem efficiently?", options: ["Array", "Stack", "Queue", "Linked list"], answer: "Stack" },
+                    { question: "What is the time complexity of the algorithm used to solve the stock span problem?", options: ["O(n)", "O(n log n)", "O(n^2)", "O(log n)"], answer: "O(n)" },
+                    { question: "In the stock span problem, how is the stock span calculated for each day?", options: ["By subtracting the current day's stock price from the previous day's stock price", "By dividing the current day's stock price by the previous day's stock price", "By counting the number of consecutive days the stock price has been increasing", "By finding the difference between the maximum and minimum stock prices over a certain period"], answer: "By counting the number of consecutive days the stock price has been increasing" },
+                    { question: "What is the purpose of the stock span problem?", options: ["To predict future stock prices", "To identify profitable trading opportunities", "To analyze historical stock price data", "To efficiently calculate the stock span for each day"], answer: "To efficiently calculate the stock span for each day" },
+                    { question: "Which of the following statements about the stock span problem is true?", options: ["It can only be solved using dynamic programming.", "It can be used to identify trends in stock price movements.", "It requires knowledge of future stock prices.", "It has a time complexity of O(n log n)."], answer: "It can be used to identify trends in stock price movements." },
+                    { question: "In the stock span problem, what does the stock span value indicate?", options: ["The volatility of the stock", "The average stock price over a certain period", "The total number of consecutive days the stock price has been increasing", "The percentage change in stock price from the previous day"], answer: "The total number of consecutive days the stock price has been increasing" },
+                    { question: "Which operation is performed first in the algorithm for solving the stock span problem using a stack?", options: ["Push", "Pop", "Peek", "Calculate stock span"], answer: "Push" },
+                    { question: "What is the space complexity of the algorithm used to solve the stock span problem?", options: ["O(1)", "O(n)", "O(n^2)", "O(log n)"], answer: "O(n)" },
+                    { question: "Which of the following statements about the stock span problem is false?", options: ["It is a type of financial analysis technique.", "It can be solved efficiently using a stack.", "It requires knowledge of future stock prices.", "It helps in understanding the behavior of stock prices over time."], answer: "It requires knowledge of future stock prices." }
+                ]
+            },
+            {
+                category: "Priority Queue using Doubly Linked List",
+                items: [
+                    { question: "Which data structure is commonly used as the underlying structure for implementing a priority queue?", options: ["Array", "Stack", "Queue", "Doubly linked list"], answer: "Array" },
+                    { question: "What is the primary advantage of using a doubly linked list to implement a priority queue?", options: ["Constant-time insertion and deletion of elements", "Efficient memory utilization", "Ability to maintain elements in sorted order", "Ability to efficiently perform search operations"], answer: "Constant-time insertion and deletion of elements" },
+                    { question: "In a priority queue implemented using a doubly linked list, how are elements arranged based on their priority?", options: ["Elements are arranged in ascending order of priority.", "Elements are arranged in descending order of priority.", "Elements are arranged randomly.", "Elements are arranged based on their insertion order."], answer: "Elements are arranged in ascending order of priority." },
+                    { question: "What is the time complexity of the insert operation in a priority queue implemented using a doubly linked list?", options: ["O(1)", "O(log n)", "O(n)", "O(n log n)"], answer: "O(1)" },
+                    { question: "Which operation is typically used to remove the element with the highest priority from a priority queue implemented using a doubly linked list?", options: ["deleteMin", "deleteMax", "removeFirst", "removeLast"], answer: "deleteMin" },
+                    { question: "In a priority queue implemented using a doubly linked list, how are elements with the same priority handled?", options: ["They are arranged in random order.", "They are arranged based on their insertion order.", "They are arranged in ascending order of value.", "They are arranged in descending order of value."], answer: "They are arranged based on their insertion order." },
+                    { question: "Which of the following statements about priority queues implemented using doubly linked lists is true?", options: ["They have a fixed size.", "They cannot handle elements with equal priority.", "They support constant-time insertion and deletion operations.", "They always maintain elements in sorted order."], answer: "They support constant-time insertion and deletion operations." },
+                    { question: "What is the primary disadvantage of using a doubly linked list to implement a priority queue?", options: ["Inefficient memory utilization", "Inability to handle elements with equal priority", "Inability to efficiently perform search operations", "Limited capacity"], answer: "Inefficient memory utilization" },
+                    { question: "Which of the following operations is NOT typically supported by a priority queue implemented using a doubly linked list?", options: ["Insertion", "Deletion", "Search", "Retrieval of the element with the highest priority"], answer: "Search" },
+                    { question: "What is the space complexity of a priority queue implemented using a doubly linked list?", options: ["O(1)", "O(n)", "O(log n)", "O(n^2)"], answer: "O(n)" }
+                ]
+            },
+            {
+                category: "Sort Without Extra Space",
+                items: [
+                    { question: "Which sorting algorithm is commonly used for sorting without extra space?", options: ["Merge Sort", "Quick Sort", "Insertion Sort", "Bubble Sort"], answer: "Quick Sort" },
+                    { question: "What is the time complexity of sorting without extra space?", options: ["O(n)", "O(n log n)", "O(n^2)", "O(log n)"], answer: "O(n log n)" },
+                    { question: "Which of the following statements about sorting without extra space is true?", options: ["It requires additional memory for storing intermediate results.", "It is always slower than traditional sorting algorithms.", "It is suitable for sorting large datasets.", "It is not suitable for sorting arrays."], answer: "It is suitable for sorting large datasets." },
+                    { question: "In sorting without extra space, which approach is commonly used to minimize memory usage?", options: ["Divide and conquer", "Dynamic programming", "Greedy algorithm", "Backtracking"], answer: "Divide and conquer" },
+                    { question: "What is the primary disadvantage of sorting without extra space?", options: ["Slower execution time", "Higher memory usage", "Limited applicability", "Complexity in implementation"], answer: "Complexity in implementation" },
+                    { question: "Which of the following sorting algorithms can be adapted for sorting without extra space?", options: ["Bucket Sort", "Radix Sort", "Counting Sort", "All of the above"], answer: "All of the above" },
+                    { question: "What is the space complexity of sorting without extra space?", options: ["O(n)", "O(n log n)", "O(n^2)", "O(log n)"], answer: "O(n)" },
+                    { question: "Which step is NOT involved in sorting without extra space?", options: ["Divide the array into subarrays", "Merge the sorted subarrays", "Perform binary search", "Recursively sort the subarrays"], answer: "Perform binary search" },
+                    { question: "Which of the following statements about sorting without extra space is false?", options: ["It is suitable for sorting arrays.", "It can be adapted for sorting linked lists.", "It is often used in embedded systems with limited memory.", "It requires careful handling of memory to avoid errors."], answer: "It is suitable for sorting arrays." },
+                    { question: "What is the advantage of sorting without extra space over traditional sorting algorithms?", options: ["Lower time complexity", "Less memory usage", "Easier implementation", "Higher stability"], answer: "Less memory usage" }
+                ]
+            },
+            {
+                category: "Max Sliding Window",
+                items: [
+                    { question: "What is the Max Sliding Window problem?", options: ["Finding the maximum element in an array", "Determining the maximum number of elements that can fit in a window", "Finding the maximum element in a fixed-size subarray of a given array", "Sorting the array in descending order"], answer: "Finding the maximum element in a fixed-size subarray of a given array" },
+                    { question: "Which data structure is commonly used to efficiently solve the Max Sliding Window problem?", options: ["Array", "Stack", "Queue", "Heap"], answer: "Heap" },
+                    { question: "What is the primary purpose of the Max Sliding Window problem?", options: ["To find the minimum element in an array", "To determine the maximum number of elements that can fit in a window", "To find the maximum element in a fixed-size subarray of a given array", "To sort the array in descending order"], answer: "To find the maximum element in a fixed-size subarray of a given array" },
+                    { question: "What is the time complexity of solving the Max Sliding Window problem using a heap?", options: ["O(n)", "O(n log n)", "O(n^2)", "O(log n)"], answer: "O(n log n)" },
+                    { question: "In the Max Sliding Window problem, what does the sliding window refer to?", options: ["A window with a fixed number of elements", "A window that moves across the array", "A window containing the maximum element", "A window with elements sorted in descending order"], answer: "A window that moves across the array" },
+                    { question: "What is the advantage of using a heap to solve the Max Sliding Window problem?", options: ["Lower time complexity", "Less memory usage", "Constant-time access to the maximum element", "Easier implementation"], answer: "Constant-time access to the maximum element" },
+                    { question: "Which operation is performed first in the algorithm for solving the Max Sliding Window problem using a heap?", options: ["Insertion", "Deletion", "Peek", "Calculate the maximum element"], answer: "Insertion" },
+                    { question: "What is the space complexity of solving the Max Sliding Window problem?", options: ["O(1)", "O(n)", "O(n log n)", "O(log n)"], answer: "O(n)" },
+                    { question: "Which of the following statements about the Max Sliding Window problem is false?", options: ["It requires knowledge of future array elements.", "It can be solved efficiently using a heap.", "It involves maintaining a sliding window over the array.", "It can be used in applications such as real-time data processing."], answer: "It requires knowledge of future array elements." },
+                    { question: "What is the purpose of solving the Max Sliding Window problem?", options: ["To find the maximum element in a given array", "To efficiently process data streams", "To sort elements within a window", "To find the average of elements in a window"], answer: "To efficiently process data streams" }
+                ]
+            },
+            {
+                category: "Stack Permutations",
+                items: [
+                    { question: "What is a stack permutation?", options: ["A permutation of elements in an array", "A permutation of elements in a stack", "A permutation of elements in a queue", "A permutation of elements in a doubly linked list"], answer: "A permutation of elements in a stack" },
+                    { question: "Which of the following operations is NOT typically performed in stack permutations?", options: ["Push", "Pop", "Insertion", "Peek"], answer: "Insertion" },
+                    { question: "What is the time complexity of determining whether a given permutation can be achieved using a stack?", options: ["O(n)", "O(n log n)", "O(n^2)", "O(log n)"], answer: "O(n)" },
+                    { question: "In stack permutations, which condition must be satisfied for a given permutation to be achievable using a stack?", options: ["The permutation must be in ascending order.", "The permutation must be in descending order.", "The permutation must be a valid sequence of push and pop operations.", "The permutation must have an even number of elements."], answer: "The permutation must be a valid sequence of push and pop operations." },
+                    { question: "Which data structure is commonly used to determine whether a given permutation can be achieved using a stack?", options: ["Array", "Stack", "Queue", "Linked List"], answer: "Stack" },
+                    { question: "What is the primary purpose of solving the stack permutations problem?", options: ["To find the maximum element in an array", "To determine if a given permutation is achievable using a stack", "To sort elements within a stack", "To find the average of elements in a stack"], answer: "To determine if a given permutation is achievable using a stack" },
+                    { question: "Which of the following statements about stack permutations is true?", options: ["Stack permutations involve rearranging elements in a queue.", "Stack permutations always result in a sorted stack.", "Stack permutations require knowledge of future elements.", "Stack permutations can be achieved using only insertion operations."], answer: "Stack permutations require knowledge of future elements." },
+                    { question: "What is the space complexity of solving the stack permutations problem?", options: ["O(1)", "O(n)", "O(n log n)", "O(log n)"], answer: "O(n)" },
+                    { question: "Which of the following statements about stack permutations is false?", options: ["It involves determining if a given permutation is achievable using a stack.", "It can be solved efficiently using dynamic programming.", "It requires knowledge of future elements in the permutation.", "It always results in a sorted stack."], answer: "It always results in a sorted stack." },
+                    { question: "What is the advantage of solving the stack permutations problem?", options: ["It allows for efficient sorting of elements.", "It provides a way to determine if a given permutation is achievable using a stack.", "It simplifies the implementation of stack operations.", "It guarantees a specific order of elements in the stack."], answer: "It provides a way to determine if a given permutation is achievable using a stack." }
+                ]
+            },
+            {
+                category: "Linked List",
+                items: [
+                    { question: "Which of the following is NOT a type of linked list?", options: ["Singly linked list", "Doubly linked list", "Circular linked list", "Quadruple linked list"], answer: "Quadruple linked list" },
+                    { question: "What is the time complexity of inserting a node at the beginning of a singly linked list?", options: ["O(1)", "O(log n)", "O(n)", "O(n^2)"], answer: "O(1)" },
+                    { question: "Which of the following operations can be performed in constant time on a singly linked list?", options: ["Insertion at the end", "Deletion from the beginning", "Deletion from the end", "Traversal from beginning to end"], answer: "Deletion from the beginning" },
+                    { question: "What is the advantage of a doubly linked list over a singly linked list?", options: ["Lower space complexity", "Faster traversal from beginning to end", "Ability to traverse in both directions", "Constant-time insertion at the end"], answer: "Ability to traverse in both directions" },
+                    { question: "Which of the following statements about a circular linked list is true?", options: ["It does not contain any loops.", "It has a fixed size.", "The last node points to NULL.", "It can be used to implement a queue."], answer: "It can be used to implement a queue" },
+                    { question: "What is the space complexity of a linked list?", options: ["O(1)", "O(log n)", "O(n)", "O(n^2)"], answer: "O(n)" },
+                    { question: "Which of the following operations has the highest time complexity in a doubly linked list?", options: ["Insertion at the beginning", "Insertion at the end", "Deletion from the beginning", "Deletion from the end"], answer: "Deletion from the end" },
+                    { question: "In a circular linked list, how can you identify the end of the list?", options: ["By checking if the last node points to NULL", "By checking if the first node points to NULL", "By traversing the entire list", "By checking the size of the list"], answer: "By checking if the last node points to NULL" },
+                    { question: "Which of the following operations is NOT typically performed on a linked list?", options: ["Searching for an element", "Sorting the elements", "Insertion at a specific position", "Reversing the list"], answer: "Sorting the elements" },
+                    { question: "What is the purpose of using a dummy node in a linked list?", options: ["To mark the end of the list", "To improve memory utilization", "To simplify insertion and deletion operations", "To avoid dealing with NULL pointers"], answer: "To avoid dealing with NULL pointers" }
+                ]
+            },
+            {
+                category: "Stack",
+                items: [
+                    { question: "What is a stack?", options: ["A linear data structure with a first-in-first-out (FIFO) policy", "A linear data structure with a last-in-first-out (LIFO) policy", "A hierarchical data structure", "A data structure used to implement recursion"], answer: "A linear data structure with a last-in-first-out (LIFO) policy" },
+                    { question: "Which of the following operations is NOT typically performed on a stack?", options: ["Push", "Pop", "Delete", "Peek"], answer: "Delete" },
+                    { question: "What is the time complexity of the push operation in a stack implemented using an array?", options: ["O(1)", "O(log n)", "O(n)", "O(n^2)"], answer: "O(1)" },
+                    { question: "In a stack, which element can be accessed first?", options: ["The top element", "The bottom element", "Any random element", "None of the above"], answer: "The top element" },
+                    { question: "Which of the following data structures is commonly used to implement a stack?", options: ["Array", "Linked list", "Queue", "Tree"], answer: "Array" }
+                ]
+            }
+        ];
+
+        const Quiz = () => {
+            const [selectedCategory, setSelectedCategory] = React.useState(null);
+            const [currentCategoryIndex, setCurrentCategoryIndex] = React.useState(0);
+            const [currentQuestionIndex, setCurrentQuestionIndex] = React.useState(0);
+            const [selectedOption, setSelectedOption] = React.useState(null);
+            const [score, setScore] = React.useState(0);
+            const [showResult, setShowResult] = React.useState(false);
+            const [answered, setAnswered] = React.useState(false);
+            const [filteredQuestions, setFilteredQuestions] = React.useState(questions);
+
+            const handleCategorySelect = (category) => {
+                if (category === "Full Quiz") {
+                    setFilteredQuestions(questions);
+                    setCurrentCategoryIndex(0);
+                } else {
+                    const filtered = questions.filter(q => q.category === category);
+                    setFilteredQuestions(filtered);
+                    setCurrentCategoryIndex(0);
+                }
+                setSelectedCategory(category);
+                setCurrentQuestionIndex(0);
+                setScore(0);
+                setShowResult(false);
+                setAnswered(false);
+                setSelectedOption(null);
+            };
+
+            const currentCategory = filteredQuestions[currentCategoryIndex];
+            const currentQuestion = currentCategory?.items[currentQuestionIndex];
+
+            const handleOptionSelect = (option) => {
+                if (!answered) {
+                    setSelectedOption(option);
+                    setAnswered(true);
+                    if (option === currentQuestion.answer) {
+                        setScore(score + 1);
+                    }
+                }
+            };
+
+            const handleNext = () => {
+                if (currentQuestionIndex + 1 < currentCategory.items.length) {
+                    setCurrentQuestionIndex(currentQuestionIndex + 1);
+                } else if (currentCategoryIndex + 1 < filteredQuestions.length) {
+                    setCurrentCategoryIndex(currentCategoryIndex + 1);
+                    setCurrentQuestionIndex(0);
+                } else {
+                    setShowResult(true);
+                }
+                setSelectedOption(null);
+                setAnswered(false);
+            };
+
+            const handleRestart = () => {
+                setCurrentCategoryIndex(0);
+                setCurrentQuestionIndex(0);
+                setSelectedOption(null);
+                setScore(0);
+                setShowResult(false);
+                setAnswered(false);
+            };
+
+            const totalQuestions = filteredQuestions.reduce((sum, category) => sum + category.items.length, 0);
+
+            if (!selectedCategory) {
+                return (
+                    <div className="bg-white p-8 rounded-xl shadow-2xl w-full max-w-3xl">
+                        <h1 className="text-3xl font-bold text-center text-blue-600 mb-6">Data Structures Quiz</h1>
+                        <p className="text-center text-gray-600 mb-8">Choose a category to start the quiz or take the full quiz!</p>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            {questions.map((category, index) => (
+                                <button
+                                    key={index}
+                                    onClick={() => handleCategorySelect(category.category)}
+                                    className="bg-blue-500 text-white px-4 py-3 rounded-lg hover:bg-blue-600 transition-all duration-300 shadow-md"
+                                >
+                                    {category.category}
+                                </button>
+                            ))}
+                            <button
+                                onClick={() => handleCategorySelect("Full Quiz")}
+                                className="bg-purple-500 text-white px-4 py-3 rounded-lg hover:bg-purple-600 transition-all duration-300 shadow-md sm:col-span-2"
+                            >
+                                Full Quiz
+                            </button>
+                        </div>
+                    </div>
+                );
+            }
+
+            return (
+                <div className="bg-white p-8 rounded-xl shadow-2xl w-full max-w-3xl">
+                    {showResult ? (
+                        <div className="text-center">
+                            <h2 className="text-3xl font-bold text-blue-600 mb-4">Quiz Completed!</h2>
+                            <p className="text-lg text-gray-700 mb-4">Your Score: {score} / {totalQuestions}</p>
+                            <div className="flex justify-center space-x-4">
+                                <button
+                                    onClick={handleRestart}
+                                    className="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition-all duration-300 shadow-md"
+                                >
+                                    Restart Quiz
+                                </button>
+                                <button
+                                    onClick={() => setSelectedCategory(null)}
+                                    className="bg-gray-500 text-white px-6 py-2 rounded-lg hover:bg-gray-600 transition-all duration-300 shadow-md"
+                                >
+                                    Back to Categories
+                                </button>
+                            </div>
+                        </div>
+                    ) : (
+                        <div>
+                            <h2 className="text-2xl font-bold text-blue-600 mb-4">{currentCategory.category}</h2>
+                            <p className="text-sm text-gray-600 mb-4">
+                                Question {currentQuestionIndex + 1} of {currentCategory.items.length}
+                            </p>
+                            <h3 className="text-lg font-medium text-gray-800 mb-6">{currentQuestion.question}</h3>
+                            <div className="space-y-3">
+                                {currentQuestion.options.map((option, index) => (
+                                    <button
+                                        key={index}
+                                        onClick={() => handleOptionSelect(option)}
+                                        className={`w-full text-left p-4 rounded-lg border-2 transition-all duration-300 ${
+                                            selectedOption === option
+                                                ? answered && option === currentQuestion.answer
+                                                    ? 'bg-green-100 border-green-500 text-green-700'
+                                                    : answered
+                                                    ? 'bg-red-100 border-red-500 text-red-700'
+                                                    : 'bg-gray-100 border-gray-300'
+                                                : 'bg-gray-100 border-gray-300 hover:bg-gray-200'
+                                        }`}
+                                        disabled={answered}
+                                    >
+                                        {option}
+                                    </button>
+                                ))}
+                            </div>
+                            {answered && (
+                                <div className="mt-4">
+                                    {selectedOption === currentQuestion.answer ? (
+                                        <p className="text-green-600 font-medium">Correct!</p>
+                                    ) : (
+                                        <p className="text-red-600 font-medium">
+                                            Incorrect. The correct answer is: {currentQuestion.answer}
+                                        </p>
+                                    )}
+                                </div>
+                            )}
+                            <button
+                                onClick={handleNext}
+                                className="mt-6 bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 disabled:bg-gray-400 transition-all duration-300 shadow-md"
+                                disabled={!answered}
+                            >
+                                Next
+                            </button>
+                        </div>
+                    )}
+                </div>
+            );
+        };
+
+        ReactDOM.render(<Quiz />, document.getElementById('root'));
+    </script>
+</body>
+</html>
